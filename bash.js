@@ -1,20 +1,44 @@
 
 let { pwd } = require("./pwd.js")
+let { ls } = require("./ls.js")
+let request = require('request')
 
-process.stdout.write('prompt > ');
+const fs = require('fs')
 
-process.stdin.on('data', (data) => {
+// console.log(request.get.toString())
+// process.stdout.write(request).setEncoding('utf8')
 
-	// const cmd = data.toString().trim();
+// process.stdout.write('prompt > ');
 
-	// // process.stdout.write('pwd: \n');
-	// process.stdout.write(directory)
-	// process.stdout.write('\n')
+request
+  .get('http://google.com/teapot')
+  .on('response', function(response) {
+    console.log(response.statusCode) // 200
+    // console.log(response.headers['content-type']) // 'image/png'
+  })
+  .pipe(request.put('http://mysite.com/img.png'))
 
-	// process.exit()
+// process.stdin.on('data', (data) => {
 
-	pwd()
+// 	// const cmd = data.toString().trim();
 
-});
+// 	// // process.stdout.write('pwd: \n');
+// 	// process.stdout.write(directory)
+// 	// process.stdout.write('\n')
+
+// 	// process.exit()
+
+// 	// pwd()
+// 	// ls()
+
+// 	let file = './bash.js'
+
+// 	fs.readFile(file, 'utf8', function(err, contents) {
+	
+// 		process.stdout.write(contents);
+	
+// 	});
+
+// });
 
 
